@@ -1,10 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import AnswerCard from '../atoms/AnswerCard';
 
-type Props = {
+interface Props {
   answers: string[];
-};
+}
 
 const AnswerCards: React.FC<Props> = ({ answers }) => {
   return (

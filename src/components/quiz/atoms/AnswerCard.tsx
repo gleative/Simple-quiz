@@ -1,16 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { setAnswer } from '../../../app/actions';
 
-type Props = {
+interface Props {
   label: string;
   // setAnswer: () => void;
-};
+}
 
 const AnswerCard: React.FC<Props> = ({ label }) => {
+  const dispatch = useDispatch();
+
+  // When user clicks on an answer, we store that answer in the store! Quiz.tsx is already grabbing this value from the store
+  const onAnswerSelected = (answer: string) => {
+    dispatch(setAnswer(answer));
+  };
+
   return (
     <Wrapper>
       <Label>
-        <input type="radio" name="radio" value={label} />
+        <input type="radio" name="radio" value={label} onClick={() => onAnswerSelected(label)} />
         <div className="text-wrapper">
           <Text>{label || 'No label spesified'}</Text>
         </div>

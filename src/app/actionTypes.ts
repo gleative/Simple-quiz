@@ -1,0 +1,3 @@
+export const INCREMENT_SCORE = 'INCREMENT_SCORE';
+export const SET_ANSWER = 'SET_ANSWER';
+export const CLEAR_ANSWER = 'CLEAR_ANSWER';
